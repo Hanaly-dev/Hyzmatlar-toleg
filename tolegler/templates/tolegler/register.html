@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrasiýa</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #7BBCB0, #4A90E2);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 480px;
+      padding: 2rem;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .login-container:hover {
+      transform: scale(1.03);
+    }
+
+    .login-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      color: #7BBCB0;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .form-label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      padding: 5px;
+      font-size: 1rem;
+      width: 100%;
+      height: 50px;
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 8px rgba(123, 188, 176, 0.5);
+      border-color: #7BBCB0;
+    }
+
+    .btn-login {
+      background-color: #7BBCB0;
+      border: none;
+      color: #ffffff;
+      padding: 12px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+
+    .btn-login:hover {
+      background-color: #5FA89E;
+    }
+
+    .form-text a {
+      color: #7BBCB0;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .form-text a:hover {
+      color: #5FA89E;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-title">
+      Agza bolmak
+    </div>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="id_username" class="form-label">Ulanyjy ady:</label>
+        <input type="text" name="username" class="form-control" id="id_username" placeholder="Ulanyjy adyňyzy giriziň" required>
+      </div>
+      <div class="form-group">
+        <label for="id_email" class="form-label">Elektron salgy:</label>
+        <input type="email" name="email" class="form-control" id="id_email" placeholder="Elektron salgyňyzy giriziň" required>
+      </div>
+      <div class="form-group">
+        <label for="id_password" class="form-label">Parol:</label>
+        <input type="password" name="password" class="form-control" id="id_password" placeholder="Parolyňyzy giriziň" required>
+      </div>
+      <div class="form-group">
+        <label for="id_confirm_password" class="form-label">Parolyňyzy tassyklaň:</label>
+        <input type="password" name="confirm_password" class="form-control" id="id_confirm_password" placeholder="Tassyklaýjy parolyňyzy giriziň" required>
+      </div>
+      <button type="submit" class="btn btn-login">Agza bolmak</button>
+      <div class="form-text text-center mt-3">
+        Agza boldyňyzmy? <a href="{% url 'login' %}">Girmek</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

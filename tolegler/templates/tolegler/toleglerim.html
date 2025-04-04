@@ -1,0 +1,79 @@
+{% extends "tolegler/index.html" %}
+{% load static %}
+{% block tolegler %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h3 class="text-center mb-4">Töleglerim</h3>
+                    <div class="row text-center mb-4">
+                        <div class="col-md-4">
+                            <div class="p-3 bg-light rounded shadow-sm">
+                                <h5>Şu günki töleg:</h5>
+                                <p class="fw-bold text-primary">{{ bugunki_jemi }} TMT</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 bg-light rounded shadow-sm">
+                                <h5>Aýlyk töleg:</h5>
+                                <p class="fw-bold text-success">{{ aylik_jemi }} TMT</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 bg-light rounded shadow-sm">
+                                <h5>Ýyllyk töleg:</h5>
+                                <p class="fw-bold text-danger">{{ yyllyk_jemi }} TMT</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% if tolegler %}
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle text-center">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Hyzmat</th>
+                                        <th>Mukdar (TMT)</th>
+                                        <th>Töleg usuly</th>
+                                        <th>Senesi</th>
+                                        <th>Hereket</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for toleg in tolegler %}
+                                        <tr>
+                                            <td>{{ forloop.counter }}</td>
+                                            <td>{{ toleg.hyzmat.ady }}</td>
+                                            <td>{{ toleg.mukdar }}</td>
+                                            <td>{{ toleg.toleg_usuly|capfirst }}</td>
+                                            <td>{{ toleg.senesi }}</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-outline-primary">
+                                                    <i class="fas fa-print me-1"></i> Çap et
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                    <tr class="table-light">
+                                        <td colspan="2" class="text-end fw-bold">Umumy mukdar:</td>
+                                        <td class="fw-bold text-success">{{ umumy_mukdar }} TMT</td>
+                                        <td colspan="3"></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="text-center text-muted">Hiç hili töleg geçirilmedi.</p>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

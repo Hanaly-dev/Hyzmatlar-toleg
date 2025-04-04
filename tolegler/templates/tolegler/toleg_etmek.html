@@ -1,0 +1,67 @@
+{% extends "tolegler/index.html" %}
+{% load static %}
+
+{% block toleg_etmek %}
+<div class="container d-flex justify-content-center align-items-center" style="margin-top: 5vh; margin-bottom: 5vh;">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-body p-5">
+                <h3 class="text-center mb-4 text-primary fw-bold">💳 Töleg etmek</h3>
+                
+                <form method="post" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="hyzmat" class="form-label fw-semibold">Hyzmat</label>
+                        <select class="form-select shadow-sm" id="hyzmat" name="hyzmat" required>
+                            <option value="" disabled selected>🔹 Hyzmat saýla</option>
+                            {% for hyzmat in hyzmatlar %}
+                                <option value="{{ hyzmat.id }}">{{ hyzmat.ady }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="invalid-feedback">Hyzmat saýlamaly!</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="toleg_usuly" class="form-label fw-semibold">Töleg usuly</label>
+                        <select class="form-select shadow-sm" id="toleg_usuly" name="toleg_usuly" required>
+                            <option value="" disabled selected>💰 Usul saýla</option>
+                            <option value="nagt">💵 Nagt</option>
+                            <option value="nagt dal">🏦 Nagt Däl</option>
+                        </select>
+                        <div class="invalid-feedback">Töleg usulyny saýlamaly!</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mukdar" class="form-label fw-semibold">Mukdary (TMT)</label>
+                        <div class="input-group shadow-sm">
+                            <span class="input-group-text">TMT</span>
+                            <input type="number" class="form-control" id="mukdar" name="mukdar" placeholder="0.00" required>
+                        </div>
+                        <div class="invalid-feedback">Mukdary girizmeli!</div>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg shadow-sm fw-semibold">✅ Töleg etmek</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
+
+{% endblock %}

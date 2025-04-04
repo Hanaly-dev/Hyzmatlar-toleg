@@ -1,0 +1,48 @@
+{% extends 'tolegler/index.html' %}
+{% load static %}
+{% block profile %}
+
+<div class="container py-5">
+    <h3 class="text-center mb-4">Ulanyjy maglumatlary</h3>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    {% if profil.suraty %}
+                        <img src="{{ profil.suraty.url }}" alt="Profil Surat" class="rounded-circle mb-3" width="120">
+                    {% else %}
+                        <img src="{% static 'images/default-profile.png' %}" alt="Profil Surat" class="rounded-circle mb-3" width="120">
+                    {% endif %}
+                    
+                    <h5 class="card-title">{{ profil.ulanyjy.username }}</h5>
+                    <p class="text-muted">{{ profil.ulanyjy.email }}</p>
+
+                    <div class="table-responsive mt-4">
+                        <table class="table table-hover align-middle text-center">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>Telefon</th>
+                                    <th>Salgy</th>
+                                    <th>Doglan güni</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ profil.telefon|default:"Maglumat girizilmedik" }}</td>
+                                    <td>{{ profil.salgy|default:"Maglumat girizilmedik" }}</td>
+                                    <td>{{ profil.doglan_guni|default:"Maglumat girizilmedik" }}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <a href="" class="btn btn-primary mt-3">Profili Üýtget</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

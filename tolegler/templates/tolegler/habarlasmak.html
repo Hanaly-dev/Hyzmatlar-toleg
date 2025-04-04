@@ -1,0 +1,95 @@
+{% extends "tolegler/index.html" %}
+{% load static %}
+{% block contact %}
+        <!-- Contact Start -->
+        <div class="container-fluid contact py-5" style="background-color: #f7f7f7;">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <!-- Contact Details Section (unchanged) -->
+                    <div class="col-xl-6">
+                        <div class="wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="bg-light rounded p-5 mb-5">
+                                <h4 class="text-primary mb-4">Maglumatlar</h4>
+                                <div class="row g-4">
+                    
+                                    <div class="col-md-6">
+                                        <div class="contact-add-item">
+                                            <div class="contact-icon text-primary mb-4">
+                                                <i class="fas fa-envelope fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <h4>Elektron salgymyz:</h4>
+                                                <p class="mb-0">jemagat-hyzmatlary@gmail.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="contact-add-item">
+                                            <div class="contact-icon text-primary mb-4">
+                                                <i class="fa fa-phone-alt fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <h4>Telefon belgimiz:</h4>
+                                                <p class="mb-0">+99365123456</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="contact-add-item">
+                                            <div class="contact-icon text-primary mb-4">
+                                                <i class="fab fa-firefox-browser fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <h4>Web sahypamyz</h4>
+                                                <p class="mb-0">www.jemagathyzmatlary.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Section (expanded) -->
+                    <div class="col-xl-6">
+                        <div class="bg-light p-5 rounded shadow-lg wow fadeInUp" data-wow-delay="0.2s">
+                            <h4 class="text-primary mb-4">Habar ugratmak</h4>
+                            <form>
+                                <div class="row g-4">
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="name" placeholder="">
+                                            <label for="name">Adyňyz</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control border-0" id="email" placeholder="example@gmail.com">
+                                            <label for="email">Elektron salgyňyz</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="phone" class="form-control border-0" id="phone" placeholder="+993....">
+                                            <label for="phone">Telefon belgiňiz</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control border-0" placeholder="..." id="message" style="height: 160px"></textarea>
+                                            <label for="message">Habaryňyz</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3 mt-4">Ugratmak</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Contact End -->
+{% endblock %}
